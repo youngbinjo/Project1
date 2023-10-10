@@ -22,8 +22,13 @@ node {
 
   }
 }
+    stage('apply -f deployment.yaml') {
+        steps {
+            sh 'ssh root master'
+            sh 'kubectl apply -f deployment.yaml'
+        }
+    }
 }
-
 // pipeline {
 //     agent any
 
