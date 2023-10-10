@@ -24,8 +24,7 @@ node {
 }
     stage('apply -f deployment.yaml') {
         steps {
-            sh 'ssh root master'
-            sh 'kubectl apply -f deployment.yaml'
+            ssh root@172.16.1.200 'kubectl apply -f /path/to/deployment.yaml'
         }
     }
 }
