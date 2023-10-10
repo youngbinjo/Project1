@@ -19,8 +19,16 @@ node {
                         sh "git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/${GIT_USERNAME}/Project1.git HEAD:main"
       }
     }
+
   }
 }
+        stage('Deploy to kubernetes'){
+        steps{
+            script{
+                kubernetesDeploy(configs: "deployment.yaml", kubeconfigId: "kubernetes")
+            }
+        }
+    }
 }
 
 // pipeline {
