@@ -22,13 +22,6 @@ node {
 
   }
 }
-        stage('Deploy to kubernetes'){
-        steps{
-            script{
-                kubernetesDeploy(configs: "deployment.yaml", kubeconfigId: "kubernetes")
-            }
-        }
-    }
 }
 
 // pipeline {
