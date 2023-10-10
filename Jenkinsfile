@@ -22,13 +22,10 @@ node {
 
   }
 }
-    stage('Apply Kubernetes Deployment') {
-        steps {
-            script {
-                def sshCommand = """
-                    ssh root@172.16.1.200 'kubectl apply -f /path/to/deployment.yaml'
-                """
-                sh(sshCommand)
+        stage('Deploy to kubernetes'){
+        steps{
+            script{
+                kubernetesDeploy(configs: "deployment.yaml", kubeconfigId: "kubernetes")
             }
         }
     }
