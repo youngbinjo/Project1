@@ -18,7 +18,7 @@ spec:
         app: nginx
     spec:
       containers:
-      - image: youngbinjo/test:latest
+      - image: youngbinjo/test:14
         name: nginx
         resources: {}
 status: {}
