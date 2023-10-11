@@ -19,14 +19,15 @@ node {
                         sh "git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/${GIT_USERNAME}/Project1.git HEAD:main"
       }
     }
-
   }
 }
-    // stage('apply -f deployment.yaml') {
-    //     steps {
-    //         ssh root@172.16.1.200 'kubectl apply -f /path/to/deployment.yaml'
-    //     }
-    // }
+
+    stage('Deployment Manifest File) {
+        scripts {
+            sh "curl -LO "curl -LO https://dl.k8s.io/release/v1.28.2/bin/linux/amd64/kubectl && chmod +x .kubectl && mv ./kubectl /usr/local/bin/kubectl"
+            sh "kubectl apply -f deployment.yaml"
+        }
+    }
 }
 // pipeline {
 //     agent any
