@@ -1,39 +1,39 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  creationTimestamp: null
   labels:
     app: nginx
   name: nginx
 spec:
-  replicas: 3
+  replicas: 2
   selector:
     matchLabels:
       app: nginx
   strategy: {}
   template:
     metadata:
-      creationTimestamp: null
       labels:
         app: nginx
     spec:
       containers:
-      - image: youngbinjo/test:4
+      - image: nginx
         name: nginx
-        resources: {}
-status: {}
+        ports:
+        - containerPort: 80
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: nginx-svc
   labels:
-    app: nginx-svc
+    app: nginx
+  name: nginx
 spec:
-  type: LoadBalancer
   ports:
   - port: 80
-    targetport: 80
+    protocol: TCP
+    targetPort: 80
   selector:
     app: nginx
-    
+  type: NodePort
+status:
+  loadBalancer: {}
