@@ -22,11 +22,11 @@ node {
 
   }
 }
-    stage('apply -f deployment.yaml') {
-        steps {
-            ssh root@172.16.1.200 'kubectl apply -f /path/to/deployment.yaml'
-        }
-    }
+    // stage('apply -f deployment.yaml') {
+    //     steps {
+    //         ssh root@172.16.1.200 'kubectl apply -f /path/to/deployment.yaml'
+    //     }
+    // }
 }
 // pipeline {
 //     agent any
