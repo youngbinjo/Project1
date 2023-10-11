@@ -29,24 +29,3 @@ node {
         }
     }
 }
-// pipeline {
-//     agent any
-
-//     stages {
-//         stage('Clone repository') {
-//             steps {
-//                 // GitHub 저장소에서 코드를 가져옵니다.
-//                 checkout scm
-//             }
-//         }
-
-//         stage('Apply Deployment') {
-//             steps {
-//                 // Kubernetes에 deployment.yaml 파일을 적용합니다.
-//                 script {
-//                     sh 'kubectl apply -f deployment.yaml'
-//                 }
-//             }
-//         }
-//     }
-// }
