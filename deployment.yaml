@@ -16,7 +16,7 @@ spec:
         app: nginx
     spec:
       containers:
-      - image: youngbinjo/test:9
+      - image: youngbinjo/test:10
         name: nginx
         ports:
         - containerPort: 80
