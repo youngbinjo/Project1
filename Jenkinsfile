@@ -22,7 +22,7 @@ node {
   }
 }
 
-    stage('Deployment Manifest File) {
+    stage('Deployment Manifest File') {
         scripts {
             sh "curl -LO "curl -LO https://dl.k8s.io/release/v1.28.2/bin/linux/amd64/kubectl && chmod +x .kubectl && mv ./kubectl /usr/local/bin/kubectl"
             sh "kubectl apply -f deployment.yaml"
