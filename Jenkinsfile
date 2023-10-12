@@ -25,4 +25,6 @@ node {
     stage('deployment') {
         script {
             sh "kubectl apply -f /var/jenkins_home/workspace/updatemanifest/deployment.yaml"
+        }
+    }
 }
