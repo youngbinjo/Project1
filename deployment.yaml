@@ -2,38 +2,37 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: nginx
-  name: nginx
+    app: tomcat
+  name: todo
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
-      app: nginx
+      app: tomcat
   strategy: {}
   template:
     metadata:
       labels:
-        app: nginx
+        app: tomcat
     spec:
       containers:
-      - image: youngbinjo/test:13
-        name: nginx
+      - image: youngbinjo/todo:latest
+        name: todo
         ports:
-        - containerPort: 80
+        - containerPort: 8080
 ---
 apiVersion: v1
 kind: Service
 metadata:
+  name: todo
   labels:
-    app: nginx
-  name: nginx
+    app: tomcat
 spec:
-  ports:
-  - port: 80
-    protocol: TCP
-    targetPort: 80
   selector:
-    app: nginx
-  type: NodePort
-status:
-  loadBalancer: {}
+    app: tomcat
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+  type: ClusterIP
+  clusterIP: 10.106.31.95
