@@ -16,7 +16,7 @@ spec:
         app: tomcat
     spec:
       containers:
-      - image: youngbinjo/test:26
+      - image: youngbinjo/test:27
         name: todo
         ports:
         - containerPort: 8080
